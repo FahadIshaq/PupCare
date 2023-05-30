@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Effects with Bootstrap</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    /* Custom CSS */
+    body, html {
+      height: 100%;
+    }
+
+    .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #registration_name {
+      padding: 10px;
+      background-color: orangered;
+      border: 3px dotted lightblue;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="registration_name" class="text-center text-white fw-bolder">FA20-BSE-094 [Muhammad Ruslan Babar]</div>
+  <div class="text-center">
+    <div class="row"><div class="col"><p class="text-center">Reload to see</p></div></div>
+    <div class="row  mt-5">
+        <div class="col">
+          <img id="logo" src="https://i.ibb.co/hcZnHtc/Screenshot-2023-05-28-at-11-27-55-AM.png" alt="russi7kd" height="150" width="280">
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col">
+          <p id="chainingExample">On Reload - Chaining example</p>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col">
+          <button id="hideBtn" class="btn btn-primary">HIDE</button>
+          <button id="showBtn" class="btn btn-primary">SHOW</button>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <button id="toggleBtn" class="btn btn-success">TOGGLE</button>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <button id="fadeInBtn" class="btn btn-info">FADE IN</button>
+          <button id="fadeOutBtn" class="btn btn-info">FADE OUT</button>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <button id="fadeToggleBtn" class="btn btn-warning">FADE TOGGLE</button>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <button id="fadeToBtn" class="btn btn-danger">FADE TO</button>
+        </div>
+      </div>
+      <div class="row  mt-2">
+        <div class="col">
+          <button id="slideDownBtn" class="btn btn-primary">SLIDE DOWN</button>
+          <button id="slideUpBtn" class="btn btn-primary">SLIDE UP</button>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <button id="slideToggleBtn" class="btn btn-secondary">SLIDE TOGGLE</button>
+        </div>
+      </div>
+      
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // HIDE and SHOW
+      $("#hideBtn").click(function() {
+        $("#registration_name").hide(8000);
+      });
+
+      $("#showBtn").click(function() {
+        $("#registration_name").show(8000);
+      });
+
+      // TOGGLE for HIDE and SHOW
+      $("#toggleBtn").click(function() {
+        $("#registration_name").toggle("fast");
+      });
+
+      // FADEIN and FADEOUT
+      $("#fadeInBtn").click(function() {
+        $("#registration_name").fadeIn("slow");
+      });
+
+      $("#fadeOutBtn").click(function() {
+        $("#registration_name").fadeOut("slow");
+      });
+
+      // TOGGLE for FADEIN and FADEOUT
+      $("#fadeToggleBtn").click(function() {
+        $("#registration_name").fadeToggle(4000);
+      });
+
+      // FADE TO
+      $("#fadeToBtn").click(function() {
+        $("#registration_name").fadeTo(3000, 0.3);
+      });
+
+      // SLIDE DOWN and SLIDE UP
+      $("#slideDownBtn").click(function() {
+        $("#registration_name").slideDown(7000);
+      });
+
+      $("#slideUpBtn").click(function() {
+        $("#registration_name").slideUp(7000);
+      });
+
+      // TOGGLE for SLIDE DOWN and SLIDE UP
+      $("#slideToggleBtn").click(function() {
+        $("#registration_name").slideToggle(9000);
+      });
+
+      // ANIMATE
+      $("#logo").click(function() {
+        $(this).animate({
+          height: "250px",
+          width: "300px"
+        });
+      });
+
+      // CHAINING
+      $("#chainingExample")
+        .css("color", "blue")
+        .fadeIn("fast")
+        .fadeOut("slow");
+    });
+  </script>
+</body>
+</html>
