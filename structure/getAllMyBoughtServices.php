@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include 'session_start.php';
 $serverName = 'localhost';
 $usernameDB = "root";
@@ -14,13 +18,20 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-$query = "SELECT b.booking_id, d.dogName, d.breed, s.serviceName, b.date_booked_start, b.date_booked_end
+// $query = "SELECT b.booking_id, d.dogName, d.breed, s.serviceName, b.date_booked_start, b.date_booked_end
+//         FROM bookings AS b
+//         JOIN dogs AS d ON b.dog_id = d.dog_id
+//         JOIN services AS s ON b.service_id = s.service_id
+//         WHERE b.user_id = '$userId'";
+
+$query = "SELECT b.booking_id, d.dogName, d.breed, s.name AS serviceName, b.date_booked_start, b.date_booked_end
         FROM bookings AS b
         JOIN dogs AS d ON b.dog_id = d.dog_id
-        JOIN services AS s ON b.service_id = s.service_id
+        LEFT JOIN services AS s ON b.service_id = s.service_id
         WHERE b.user_id = '$userId'";
 
 $result = mysqli_query($conn, $query);
+
 
 // Check if any results were returned
 if (mysqli_num_rows($result) > 0) {

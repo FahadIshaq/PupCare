@@ -4,8 +4,9 @@ $(document).ready(function() {
 
 
 
+
     $.ajax({
-      url: "./getServices.php",
+      url: "/HAPPY_PUP_CARE/structure/getServices.php",
       type: "GET",
       dataType: "json",
       success: function(response) {
